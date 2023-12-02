@@ -1,3 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "prettier"]
+  //agregar una regla para cortar el largo de una linea y que lo arregle automaticamente
+  // "rules": {
+  //   "max-len": ["error", { "code": 80 }]
+  // }
 }

@@ -1,33 +1,36 @@
 // import Image from "next/image";
-import TinyEditor from "@/components/TinyEditor";
+import TinyEditor from '@/components/TinyEditor';
 
 export default function Home() {
   async function myAction(data: any) {
-    "use server";
+    'use server';
 
     console.log(data);
   }
 
   return (
-    <main className="h-screen p-10 flex flex-row justify-center dark:bg-slate-600">
-      <form action={myAction}>
-        <div>
+    <main className='h-screen p-10 flex flex-col justify-start dark:bg-slate-600'>
+      <h1 className='self-center  font-semibold text-gray-900 text-4xl'>
+        Nuevo Post!
+      </h1>
+      <form action={myAction} className='w-full flex flex-col'>
+        <div className=' relative  pt-4 pb-8 '>
+          <input
+            id='title'
+            name='title'
+            type='text'
+            className='peer h-10 w-full border-b-2 rounded-t bg-transparent border-gray-500 text-gray-900 placeholder-transparent focus:outline-none focus:border-red-500'
+            placeholder='Titulo del articulo'
+          />
           <label
-            htmlFor="title"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            htmlFor='title'
+            className='absolute left-2  text-gray-600 dark:text-opacity-0 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-5 peer-pla  peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm'
           >
             Titulo del articulo
           </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Titulo"
-          />
         </div>
-        <TinyEditor id="content" name="content" />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <TinyEditor id='content' name='content' />
+        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-4 w-32 self-end'>
           Guardar
         </button>
       </form>
